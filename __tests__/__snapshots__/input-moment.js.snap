@@ -87,19 +87,19 @@ exports[`render 1`] = `
               className="prev-month"
               onClick={[Function]}
             >
-              1533074399997
+              29
             </td>
             <td
               className="prev-month"
               onClick={[Function]}
             >
-              1533074399998
+              30
             </td>
             <td
               className="prev-month"
               onClick={[Function]}
             >
-              1533074399999
+              31
             </td>
             <td
               className=""
