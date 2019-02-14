@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    'dist/input-moment': './index.js',
+    'dist/input-dayjs': './index.js',
     'example/bundle': './example/app.js'
   },
   output: {
@@ -18,7 +18,7 @@ module.exports = {
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
-    moment: 'moment'
+    dayjs: 'dayjs'
   },
   devtool: 'source-map'
 };

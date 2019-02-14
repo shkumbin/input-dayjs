@@ -1,10 +1,11 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import InputMoment from '../';
+import InputDayJS from '../';
 
 test('render', () => {
-  const m = moment().year(2018).month(7).date(8).hours(8).minutes(8).seconds(8);
-  const component = <InputMoment moment={m} />;
+  // console.log(dayjs)
+  const d = dayjs().set('year', 2018).set('month', 7).set('date', 8).set('hour', 8).set('minute', 8).set('second', 8);
+  const component = <InputDayJS dayjs={d} />;
   expect(renderer.create(component).toJSON()).toMatchSnapshot();
 });

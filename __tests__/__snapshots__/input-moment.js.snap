@@ -2,7 +2,7 @@
 
 exports[`render 1`] = `
 <div
-  className="m-input-moment"
+  className="m-input-dayjs"
 >
   <div
     className="options"
@@ -87,19 +87,19 @@ exports[`render 1`] = `
               className="prev-month"
               onClick={[Function]}
             >
-              29
+              1533074399997
             </td>
             <td
               className="prev-month"
               onClick={[Function]}
             >
-              30
+              1533074399998
             </td>
             <td
               className="prev-month"
               onClick={[Function]}
             >
-              31
+              1533074399999
             </td>
             <td
               className=""

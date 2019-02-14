@@ -1,10 +1,10 @@
 import cx from 'classnames';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { Component } from 'react';
 import Calendar from './calendar';
 import Time from './time';
 
-export default class InputMoment extends Component {
+export default class InputDayJS extends Component {
   static defaultProps = {
     prevMonthIcon: 'ion-ios-arrow-left',
     nextMonthIcon: 'ion-ios-arrow-right',
@@ -29,7 +29,7 @@ export default class InputMoment extends Component {
   render() {
     const { tab } = this.state;
     const {
-      moment: m,
+      dayjs: d,
       className,
       prevMonthIcon,
       nextMonthIcon,
@@ -38,7 +38,7 @@ export default class InputMoment extends Component {
       onSave,
       ...props
     } = this.props;
-    const cls = cx('m-input-moment', className);
+    const cls = cx('m-input-dayjs', className);
 
     return (
       <div className={cls} {...props}>
@@ -62,14 +62,14 @@ export default class InputMoment extends Component {
         <div className="tabs">
           <Calendar
             className={cx('tab', { 'is-active': tab === 0 })}
-            moment={m}
+            dayjs={d}
             onChange={this.props.onChange}
             prevMonthIcon={this.props.prevMonthIcon}
             nextMonthIcon={this.props.nextMonthIcon}
           />
           <Time
             className={cx('tab', { 'is-active': tab === 1 })}
-            moment={m}
+            dayjs={d}
             minStep={this.props.minStep}
             hourStep={this.props.hourStep}
             onChange={this.props.onChange}

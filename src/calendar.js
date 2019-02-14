@@ -1,4 +1,3 @@
-import moment from 'moment';
 import React, { Component } from 'react';
 import cx from 'classnames';
 import range from 'lodash/range';
@@ -20,31 +19,31 @@ export default class Calendar extends Component {
   selectDate = (i, w) => {
     const prevMonth = w === 0 && i > 7;
     const nextMonth = w >= 4 && i <= 14;
-    const m = this.props.moment;
+    let d = this.props.dayjs;
 
-    if (prevMonth) m.subtract(1, 'month');
-    if (nextMonth) m.add(1, 'month');
+    if (prevMonth) d = d.subtract(1, 'month');
+    if (nextMonth) d = d.add(1, 'month');
 
-    m.date(i);
+    d = d.set('date', i);
 
-    this.props.onChange(m);
+    this.props.onChange(d);
   };
 
   prevMonth = e => {
     e.preventDefault();
-    this.props.onChange(this.props.moment.subtract(1, 'month'));
+    this.props.onChange(this.props.dayjs.subtract(1, 'month'));
   };
 
   nextMonth = e => {
     e.preventDefault();
-    this.props.onChange(this.props.moment.add(1, 'month'));
+    this.props.onChange(this.props.dayjs.add(1, 'month'));
   };
 
   render() {
-    const m = this.props.moment;
+    const m = this.props.dayjs;
     const d = m.date();
     const d1 = m.clone().subtract(1, 'month').endOf('month').date();
-    const d2 = m.clone().date(1).day();
+    const d2 = m.clone().set('date', 1).day();
     const d3 = m.clone().endOf('month').date();
     const days = [].concat(
       range(d1 - d2 + 1, d1 + 1),
