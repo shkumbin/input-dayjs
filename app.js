@@ -1,25 +1,26 @@
-import '../src/less/input-moment.less';
+import '../src/less/input-dayjs.less';
 import './app.less';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import InputMoment from '../src/input-moment';
+import InputDayJS from '../src/input-dayjs';
 import packageJson from '../package.json';
 
 class App extends Component {
   state = {
-    m: moment()
+    d: dayjs()
   };
 
-  handleChange = m => {
-    this.setState({ m });
+  handleChange = d => {
+    this.setState({ d });
   };
 
   handleSave = () => {
-    console.log('saved', this.state.m.format('llll'));
+    console.log('saved', this.state.d.format('ddd, MMM DD, YYYY hh:mm A'));
   };
 
   render() {
+
     return (
       <div className="app">
         <h1>
@@ -28,10 +29,10 @@ class App extends Component {
         <h2>{packageJson.description}</h2>
         <form>
           <div className="input">
-            <input type="text" value={this.state.m.format('llll')} readOnly />
+            <input type="text" value={this.state.d.format('ddd, MMM DD, YYYY hh:mm A')} readOnly />
           </div>
-          <InputMoment
-            moment={this.state.m}
+          <InputDayJS
+            dayjs={this.state.d}
             onChange={this.handleChange}
             minStep={5}
             onSave={this.handleSave}
